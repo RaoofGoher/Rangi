@@ -13,7 +13,7 @@ import MainLayout from './layouts/MainLayout';
 import Customer from './pages/Customer';
 import Professional from './pages/Professional';
 import SecondaryLayout from './layouts/SecondaryLayout';
-import LoginPage from './pages/loginPage';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   const router = createBrowserRouter(
