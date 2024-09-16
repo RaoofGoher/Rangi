@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/* Make the main layout a flex container */
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    min-height: 100vh; /* Full viewport height */
+  }
+  
+  /* Ensure the content area grows to fill available space */
+  .content {
+    flex: 1;
+  }
+  
+  /* Optional: Style for the footer */
+  footer {
+    background-color: #ccc;
+    padding: 20px;
+    text-align: center;
+  }
+  
