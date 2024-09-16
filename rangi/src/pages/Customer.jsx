@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginPage from './loginPage'
+import LoginPage from './LoginPage'
 const Customer = () => {
   return (
    <LoginPage isCustomer={'yes'}/>
