@@ -11,7 +11,7 @@
 .main-layout {
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding: 0 5px;
     min-height: 100vh; /* Full viewport height */
   }
   
@@ -26,4 +26,6 @@
     padding: 20px;
     text-align: center;
   }
-  
+  .secondary-background{
+    background: url('./assets/bg-image.png') no-repeat center center/cover ;
+  }
