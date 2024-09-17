@@ -4,9 +4,8 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from 'react-router-dom';
-
-import './index.css'
-
+import { AuthProvider } from './components/AuthContext'; // Import AuthProvider
+import './index.css';
 
 import NotFoundPage from './pages/NotFound';
 import MainLayout from './layouts/MainLayout';
@@ -14,29 +13,39 @@ import Customer from './pages/Customer';
 import Professional from './pages/Professional';
 import SecondaryLayout from './layouts/SecondaryLayout';
 import LoginPage from './pages/LoginPage';
+import Dashboard from './pages/Dashboard'; // Import protected route component
+import ProtectedRoute from './components/ProtectedRoutes'; // Import ProtectedRoute component
+import UserLayout from './layouts/UserLayout'
 
 function App() {
-  const router = createBrowserRouter(
-    createRoutesFromElements(<>
-      <Route path = "/" element={<MainLayout/>}  >
-      
-        <Route path='*' element={<NotFoundPage />} />
-        
-      </Route>
-      <Route path = "/login" element={<SecondaryLayout/>}>
-      <Route path='/login/customer' element={<Customer />} />
-      <Route path='/login/professional' element={<Professional />} />
-    
 
-      <Route path='*' element={<NotFoundPage />} />
-      </Route>
-      <Route path='/loginn' element={<LoginPage />} />
+  
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path="/" element={<MainLayout />}>
+          
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+        <Route path="/login" element={<SecondaryLayout />}>
+          <Route path="/login/customer" element={<LoginPage isCustomer="yes" />} />
+          <Route path="/login/professional" element={<LoginPage isCustomer="no" />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+        <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} />} />
+
+       
+
+        
       </>
     )
   );
 
   return (
-    <RouterProvider router={router} />)
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,198 @@
+{
+    "posts": [
+      { "id": "1", "title": "a title", "views": 100 },
+      { "id": "2", "title": "another title", "views": 200 }
+    ],
+    "comments": [
+      { "id": "1", "text": "a comment about post 1", "postId": "1" },
+      { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    ],
+    "profile": {
+      "name": "typicode"
+    },
+    "customers": [
+      {
+        "id": "1",
+        "name": "John Doe",
+        "role": "normal",
+        "email": "john.doe@example.com",
+        "password": "password123",
+        "permissions": ["read"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "2",
+        "name": "Robert Brown",
+        "role": "normal",
+        "email": "robert.brown@example.com",
+        "password": "password123",
+        "permissions": ["read"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "3",
+        "name": "Michael Wilson",
+        "role": "admin",
+        "email": "michael.wilson@example.com",
+        "password": "adminpass456",
+        "permissions": ["read", "write"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "4",
+        "name": "Sarah Lee",
+        "role": "normal",
+        "email": "sarah.lee@example.com",
+        "password": "password123",
+        "permissions": ["read"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "5",
+        "name": "Daniel Harris",
+        "role": "admin",
+        "email": "daniel.harris@example.com",
+        "password": "adminpass456",
+        "permissions": ["read", "write"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "6",
+        "name": "Matthew Allen",
+        "role": "super admin",
+        "email": "matthew.allen@example.com",
+        "password": "supersecure789",
+        "permissions": ["read", "write", "delete"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "7",
+        "name": "Ethan Walker",
+        "role": "normal",
+        "email": "ethan.walker@example.com",
+        "password": "password123",
+        "permissions": ["read"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "8",
+        "name": "Noah Young",
+        "role": "normal",
+        "email": "noah.young@example.com",
+        "password": "password123",
+        "permissions": ["read"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "9",
+        "name": "Emma Scott",
+        "role": "admin",
+        "email": "emma.scott@example.com",
+        "password": "adminpass456",
+        "permissions": ["read", "write"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      }
+    ],
+    "professionals": [
+      {
+        "id": "1",
+        "name": "Jane Smith",
+        "role": "admin",
+        "email": "jane.smith@example.com",
+        "password": "adminpass456",
+        "permissions": ["read", "write"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "2",
+        "name": "Alice Johnson",
+        "role": "super admin",
+        "email": "alice.johnson@example.com",
+        "password": "supersecure789",
+        "permissions": ["read", "write", "delete"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "3",
+        "name": "Emily Davis",
+        "role": "normal",
+        "email": "emily.davis@example.com",
+        "password": "password123",
+        "permissions": ["read"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "4",
+        "name": "Jessica Taylor",
+        "role": "normal",
+        "email": "jessica.taylor@example.com",
+        "password": "password123",
+        "permissions": ["read"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "5",
+        "name": "David Anderson",
+        "role": "super admin",
+        "email": "david.anderson@example.com",
+        "password": "supersecure789",
+        "permissions": ["read", "write", "delete"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "6",
+        "name": "Chris Martinez",
+        "role": "admin",
+        "email": "chris.martinez@example.com",
+        "password": "adminpass456",
+        "permissions": ["read", "write"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "7",
+        "name": "Nancy Miller",
+        "role": "normal",
+        "email": "nancy.miller@example.com",
+        "password": "password123",
+        "permissions": ["read"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "8",
+        "name": "Sophia Clark",
+        "role": "normal",
+        "email": "sophia.clark@example.com",
+        "password": "password123",
+        "permissions": ["read"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "9",
+        "name": "Olivia King",
+        "role": "admin",
+        "email": "olivia.king@example.com",
+        "password": "adminpass456",
+        "permissions": ["read", "write"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "10",
+        "name": "Mia Hall",
+        "role": "super admin",
+        "email": "mia.hall@example.com",
+        "password": "supersecure789",
+        "permissions": ["read", "write", "delete"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      },
+      {
+        "id": "11",
+        "name": "Lucas Green",
+        "role": "normal",
+        "email": "lucas.green@example.com",
+        "password": "password123",
+        "permissions": ["read"],
+        "createdAt": "2024-09-17T08:00:00Z"
+      }
+    ]
+  }
+  
