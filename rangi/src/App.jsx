@@ -17,15 +17,15 @@ import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard'; // Import protected route component
 import ProtectedRoute from './components/ProtectedRoutes'; // Import ProtectedRoute component
 import UserLayout from './layouts/UserLayout'
+import Home from './pages/Home';
 
 function App() {
 
- 
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
         <Route path="/" element={<MainLayout />}>
-          
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="/login" element={<SecondaryLayout />}>
@@ -33,11 +33,17 @@ function App() {
           <Route path="/login/professional" element={<LoginPage isCustomer="no" />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
+
+        <Route path="/" element={<UserLayout />}>
         <Route path="/dashboard/:username" element={<ProtectedRoute element={<Dashboard />} />} />
-
-       
-
+        <Route path="/dashboard/:username/home" element={<Home/>} />
+        <Route path="*" element={<NotFoundPage />} />
+        </Route>
         
+
+
+
+
       </>
     )
   );
