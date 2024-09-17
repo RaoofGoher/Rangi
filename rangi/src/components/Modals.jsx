@@ -1,22 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Modal = ({ isOpen, onClose, onSave }) => {
-  const [step, setStep] = useState(1); // To track the current step
+  const [step, setStep] = useState(1);
   const [firstSelection, setFirstSelection] = useState(null);
   const [secondSelection, setSecondSelection] = useState(null);
+  const [options, setOptions] = useState([]); // State for the fetched options
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // Fetch options from the backend when the modal opens
+    if (isOpen) {
+      setLoading(true);
+      setError(null);
+      
+      fetch('http://localhost:8000/options') // Replace with your backend API endpoint
+        .then((response) => response.json())
+        .then((data) => {
+          setOptions(data); // Assume data is an array of options
+          setLoading(false);
+        })
+        .catch((err) => {
+          setError('Failed to load options');
+          setLoading(false);
+        });
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
   // Function to handle the first set of selections
   const handleFirstSelection = (selection) => {
     setFirstSelection(selection);
-    setStep(2); // Move to the next step
+    setSecondSelection(null); // Reset second selection when first selection changes
+    setStep(2);
   };
 
   // Function to handle the second set of selections
   const handleSecondSelection = (selection) => {
     setSecondSelection(selection);
-    setStep(3); // Move to the final step
+    setStep(3);
   };
 
   // Function to save the final selection
@@ -25,9 +48,9 @@ const Modal = ({ isOpen, onClose, onSave }) => {
       firstSelection,
       secondSelection,
     };
-    onSave(finalData); // Call the onSave function to store the data
-    onClose(); // Close the modal
-    setStep(1); // Reset the modal steps
+    onSave(finalData);
+    onClose();
+    setStep(1);
     setFirstSelection(null);
     setSecondSelection(null);
   };
@@ -42,33 +65,47 @@ const Modal = ({ isOpen, onClose, onSave }) => {
           &times;
         </button>
 
-        {step === 1 && (
+        {loading ? (
+          <p>Loading options...</p>
+        ) : error ? (
+          <p className="text-red-500">{error}</p>
+        ) : step === 1 ? (
           <div>
             <h2 className="text-center mb-4">Select an Option</h2>
             <div className="flex flex-col space-y-2">
-              <button onClick={() => handleFirstSelection('Option 1')} className="bg-blue-500 text-white py-2 rounded">Option 1</button>
-              <button onClick={() => handleFirstSelection('Option 2')} className="bg-blue-500 text-white py-2 rounded">Option 2</button>
-              <button onClick={() => handleFirstSelection('Option 3')} className="bg-blue-500 text-white py-2 rounded">Option 3</button>
+              {options.map((optionCategory) => (
+                <button
+                  key={optionCategory.id}
+                  onClick={() => handleFirstSelection(optionCategory)}
+                  className="bg-blue-500 text-white py-2 rounded"
+                >
+                  {optionCategory.category}
+                </button>
+              ))}
             </div>
           </div>
-        )}
-
-        {step === 2 && (
+        ) : step === 2 ? (
           <div>
             <h2 className="text-center mb-4">Select a Sub-Option</h2>
-            <div className="flex flex-col space-y-2">
-              <button onClick={() => handleSecondSelection('Sub-Option 1')} className="bg-green-500 text-white py-2 rounded">Sub-Option 1</button>
-              <button onClick={() => handleSecondSelection('Sub-Option 2')} className="bg-green-500 text-white py-2 rounded">Sub-Option 2</button>
-              <button onClick={() => handleSecondSelection('Sub-Option 3')} className="bg-green-500 text-white py-2 rounded">Sub-Option 3</button>
-            </div>
+            {firstSelection && (
+              <div className="flex flex-col space-y-2">
+                {firstSelection.options.map((subOption) => (
+                  <button
+                    key={subOption.id}
+                    onClick={() => handleSecondSelection(subOption)}
+                    className="bg-green-500 text-white py-2 rounded"
+                  >
+                    {subOption.name}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
-        )}
-
-        {step === 3 && (
+        ) : (
           <div>
             <h2 className="text-center mb-4">Your Selections</h2>
-            <p>First Selection: {firstSelection}</p>
-            <p>Second Selection: {secondSelection}</p>
+            <p>First Selection: {firstSelection ? firstSelection.category : 'None'}</p>
+            <p>Second Selection: {secondSelection ? secondSelection.name : 'None'}</p>
             <button onClick={handleSave} className="bg-blue-500 text-white py-2 rounded mt-4">
               Save and Close
             </button>

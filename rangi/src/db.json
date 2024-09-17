@@ -193,6 +193,35 @@
         "permissions": ["read"],
         "createdAt": "2024-09-17T08:00:00Z"
       }
-    ]
+    ],
+    "options": [
+    {
+      "id": "1",
+      "category": "First Choice",
+      "options": [
+        { "id": "1.1", "name": "Option 1A" },
+        { "id": "1.2", "name": "Option 1B" },
+        { "id": "1.3", "name": "Option 1C" }
+      ]
+    },
+    {
+      "id": "2",
+      "category": "Second Choice",
+      "options": [
+        { "id": "2.1", "name": "Option 2A" },
+        { "id": "2.2", "name": "Option 2B" },
+        { "id": "2.3", "name": "Option 2C" }
+      ]
+    },
+    {
+      "id": "3",
+      "category": "Third Choice",
+      "options": [
+        { "id": "3.1", "name": "Option 3A" },
+        { "id": "3.2", "name": "Option 3B" },
+        { "id": "3.3", "name": "Option 3C" }
+      ]
+    }
+  ]
   }
   
