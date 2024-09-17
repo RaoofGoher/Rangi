@@ -3,6 +3,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
+  useParams
 } from 'react-router-dom';
 import { AuthProvider } from './components/AuthContext'; // Import AuthProvider
 import './index.css';
@@ -19,7 +20,7 @@ import UserLayout from './layouts/UserLayout'
 
 function App() {
 
-  
+ 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
@@ -32,7 +33,7 @@ function App() {
           <Route path="/login/professional" element={<LoginPage isCustomer="no" />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
-        <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} />} />
+        <Route path="/dashboard/:username" element={<ProtectedRoute element={<Dashboard />} />} />
 
        
 

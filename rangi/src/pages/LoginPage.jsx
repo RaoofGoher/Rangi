@@ -23,7 +23,7 @@ const LoginPage = ({ isCustomer }) => {
         localStorage.setItem('isCustomer', isCustomer === "yes" ? true : false);
         localStorage.setItem('UserName', user.name);
         login(user.role, isCustomer, user.name);
-        navigate('/dashboard'); // Redirect to a protected route
+        navigate(`/dashboard/${user.name}`);; // Redirect to a protected route
       } else {
         setError('Invalid email or password');
         alert('Authentication failed');

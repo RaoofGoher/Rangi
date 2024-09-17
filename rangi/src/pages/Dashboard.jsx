@@ -1,7 +1,11 @@
 import React from 'react';
+
 import { useAuth } from '../components/AuthContext';
 
+import { useParams } from 'react-router-dom';
+
 const Dashboard = () => {
+  const { username } = useParams();
   const { role, isCustomer, userName } = useAuth();
   console.log(role, isCustomer, userName);
   return (
