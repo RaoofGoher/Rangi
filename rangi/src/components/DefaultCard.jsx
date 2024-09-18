@@ -7,9 +7,9 @@ const DefaultCard = ({ type }) => {
   let color = '';
   let isCustomer;
   if (type === 'customer') {
-    color = 'bg-customer-color';
+    color = 'bg-test1';
   } else {
-    color = 'bg-pro-color';
+    color = 'bg-test1';
   }
 
   if (type === 'customer'){

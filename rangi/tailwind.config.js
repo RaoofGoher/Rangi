@@ -10,7 +10,8 @@ export default {
         'customer-color':"#D71100",
         'pro-color':'#003359',
         'entjGreen':'#1d4428',
-        'entjGolden':'#d4bf1e',  
+        'entjGolden':'#d4bf1e',
+        'test1':'#BC852B'  
       }
     },
   },
