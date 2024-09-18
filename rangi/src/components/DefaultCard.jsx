@@ -20,13 +20,13 @@ const DefaultCard = ({ type }) => {
 
   return (
     
-      <div className={`w-[45vw] h-[20vh] rounded overflow-hidden shadow-lg p-4 m-10 ${color}`}>
+      <div className={`border border-4 border-entjGolden w-[45vw] h-[20vh] rounded overflow-hidden shadow-lg p-4 m-10 ${color}`}>
         <div className="font-bold text-xl mb-2 text-white">{type === 'customer' ? 'Customer' : 'Profesional'} Login</div>
         <p className="text-white text-base">
-          Select this if you want to log in as a {type === 'customer' ? 'Customer' : 'Profesional'}.
+          Select this if you want to log in or sign up as a {type === 'customer' ? 'Customer' : 'Profesional'}.
         </p>
-        <Link to={type === 'customer' ? '/login/customer' : '/login/professional'}><Button isCustomer={isCustomer} text={'Login'}/></Link>
-        <Button isCustomer={isCustomer} text={'Sign Up'}/>
+        <Link to={type === 'customer' ? '/login/customer' : '/login/professional'}><Button isCustomer={isCustomer} text={'Login'} isLogin={true}/></Link>
+        <Link to={type === 'customer' ? '/SignUp/customer' : '/SignUP/professional'}><Button isCustomer={isCustomer} text={'Sign Up'} isLogin={false}/></Link>
       </div>
   
   );
